@@ -1,5 +1,5 @@
 .jumbotron {
-background-color: #0000FF;
+background-color: #CD853F;
 }
 
 #firstSection{
@@ -9,18 +9,18 @@ background-color: #0000FF;
 	background-color: 	#3CB371;
 	padding: 25px;
 	 text-align: center;
-	 font-size: 35px;
+	 font-size: 50px;
 }
 
 #winorloss{
 	background-color: #00FFFF;
-	font-size: 18px;
+	font-size: 10px;
 }
 #yourscore{
 		background-color: #1E90FF;
 		padding: 25px;
 	 	text-align: center;
-	 	font-size: 35px;
+	 	font-size: 50px;
 }
 .my_images{
 
@@ -29,4 +29,7 @@ background-color: #0000FF;
 #isscore{
 	background-color: #1E90FF;
 
+}
+body{
+	background-image: url("../images/background.png");
 }
