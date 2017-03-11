@@ -1,0 +1,32 @@
+.jumbotron {
+background-color: #0000FF;
+}
+
+#firstSection{
+	background-color: #DEB887;
+}
+#numbertomatch{
+	background-color: 	#3CB371;
+	padding: 25px;
+	 text-align: center;
+	 font-size: 35px;
+}
+
+#winorloss{
+	background-color: #00FFFF;
+	font-size: 18px;
+}
+#yourscore{
+		background-color: #1E90FF;
+		padding: 25px;
+	 	text-align: center;
+	 	font-size: 35px;
+}
+.my_images{
+
+	background-color:	#FAF0E6;
+}
+#isscore{
+	background-color: #1E90FF;
+
+}

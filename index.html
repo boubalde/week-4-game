@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>index</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
+</head>
+<body>
+<!-- Bootstrap Container will hold everything -->
+  <div class="container">
+    <!-- Jumbotron holds the title section -->
+    <div class="jumbotron">
+      <div class="container">
+        <h1>Crystals Collector</h1>
+      </div>
+    </div>
+
+    <div class="row"> 
+    	<div class="col-sm-6">
+	    	<div id="firstSection">
+				<div class="paragraph" id= "first paragraph">
+					<p>You will be given a random number at the begining of the game</p>
+				</div>
+				<div class="paragraph" id= "second paragraph">
+					<p>There are four Crystal below. By clicking on a crystal you'll add a specific amount to your total score</p>
+				</div>
+				<div class="paragraph" id= "third paragraph">
+					<p>You win the game by matching your total score to a random number, you lose the game if your total score goes above the random number</p>
+				</div>
+				<div class="paragraph"   id= "fourth paragraph">
+					<p>The value of each crystal is hidden from you until you click on it.</p>
+				</div>
+				<div class="paragraph" id= "fifth paragraph">
+					<p>Each time when the game starts, the game will change the values of each crystal</p>
+				</div>
+			</div>
+    	</div>
+	</div>
+
+<div  class="Container">
+		
+		    <div class="row">
+		    	<div  class="col-sm-3">
+		    		<div id="numbertomatch">
+		    			
+		    		</div>
+		    	</div>
+		    	<div class="col-sm-3">
+		    		<div id="winorloss">
+		    			<div id="win-lose">
+		    				
+		    			</div>
+		    			<div>
+        					<h3>Wins: </h3>
+       					 	<span id="wins"></span>
+      					</div>
+
+      					<div>
+        					<h3>Losses: </h3>
+        					<span id="losses"></span>
+      					</div>
+		    		</div>	
+		    	</div>
+		    	
+		   	</div>
+		
+
+		<div class="row">
+		    <div class="col-sm-2">
+		    		<div class="Work">
+		    			<img src="assets/images/red.jpg" class="img-responsive img-circle my_images" id="red_crystal" alt="Crystal Game">
+		    		</div>
+		    	</div>
+		    	<div class="col-sm-2">
+		    		<div class="Work">
+		    			<img src="assets/images/blue.jpg" class="img-responsive img-circle my_images" id="blue_crystal" alt="Crystal Game">
+		    		</div>
+		    	</div>
+		    	<div class="col-sm-2">
+		    		<div class="Work">
+		    			<img src="assets/images/yellow.jpg" class="img-responsive img-circle my_images" id="yellow_crystal" alt="Crystal Game">
+		    		</div>
+		    	</div>
+		    	<div class="col-sm-2">
+		    		<div class="Work">
+		    			<img src="assets/images/green.jpg" class= "img-responsive img-circle my_images" id="green_crystal" alt="Crystal Game">
+		    		</div>
+		    	</div>
+		   
+		
+		</div>
+
+			<div class="row">
+				<div class="col-sm-3">
+					<div id="isscore">
+						<p> Your total score is: </p>
+					</div>
+				</div>
+			</div>
+		
+
+		
+			<div class="row">
+				<div class="col-sm-3">
+					<div id= "yourscore">
+					
+					</div>
+				</div>
+			</div>
+		
+</div>
+
+
+<script type="text/javascript" src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
+  <script type="text/javascript">
+  $(document).ready(function() {
+
+var randomstart;
+var blueRandom;
+var yellowRandom;
+var greenRandom;  	
+var total=0;
+var wins = 0;
+var losses = 0;
+
+
+
+var randomvariables = function(){
+	 total=0;
+     randomstart = Math.floor(Math.random() * 102) + 19;
+    $("#numbertomatch").html(randomstart);
+     redRandom= Math.floor(Math.random() * 12) + 1;
+	 blueRandom= Math.floor(Math.random() * 12) + 1;
+	 yellowRandom= Math.floor(Math.random() * 12) +1;
+	 greenRandom= Math.floor(Math.random() * 12) + 1;
+	 $("#yourscore").html(total)
+}
+
+randomvariables();
+
+var mycode = function(){
+  if (total===randomstart) {
+			   	wins++;
+
+		$("#win-lose").html("<h2> WINNER </h2>");
+        $("#wins").html("<h2>"+ wins +"</h2>");
+        console.log(wins);
+        
+        total=0;
+         randomvariables();
+    }
+			   
+	else if  (total> randomstart) {
+			   	
+			   	losses++;
+        $("#win-lose").html("<h2>Loser!</h2>");
+        $("#losses").html("<h3>" + losses + "</h3>");
+       		
+        	total=0;
+         randomvariables();
+        
+    }
+    else {
+    	total;
+    	$("#yourscore").html(total);
+
+    }
+
+}
+mycode();
+
+   $("#red_crystal").on("click", function() {
+
+		total+= redRandom;
+		$("#yourscore").html(total);
+		console.log(total);	
+		mycode();
+
+   });
+
+   $("#blue_crystal").on("click", function() {
+
+		total+= blueRandom;
+		$("#yourscore").html(total);
+		console.log(total);
+		mycode();
+
+   });
+
+   $("#yellow_crystal").on("click", function() {
+
+		total+= yellowRandom;
+		$("#yourscore").html(total);
+		console.log(total);
+		mycode();
+
+
+
+   });
+
+   $("#green_crystal").on("click", function() {
+
+		
+   		total+= greenRandom;
+   		$("#yourscore").html(total);
+   		console.log(total);
+   		mycode();
+
+
+   });
+
+			   
+
+			   
+
+});
+
+
+
+</script>
+</body>
+</html>
